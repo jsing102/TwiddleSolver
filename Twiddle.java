@@ -10,9 +10,10 @@ public class Twiddle {
 
 		Scanner key = new Scanner(System.in);
 		do {
-			System.out.print("Enter the Length of the board: ");
+			System.out.println("Enter a nxn board. ");
+			System.out.print("Length: ");
 			length = key.nextInt();
-			System.out.print("Enter the height of the board: ");
+			System.out.print("Height: ");
 			height = key.nextInt();
 		} while (!(length > 2 && height > 2));
 		Board board = new Board(length, height);
@@ -27,7 +28,7 @@ public class Twiddle {
 			choice = key.nextInt();
 			switch (choice) {
 				case 1:
-					System.out.println("Enter the values of the board: ");
+					System.out.println("Enter the values of the board (Top to Bottom): ");
 					int input = key.nextInt();
 					int inputLength = Integer.toString(input).length();
 					if (inputLength > 1) {
@@ -38,12 +39,14 @@ public class Twiddle {
 									input /= 10;
 								}
 							}
-
 						} else {
+							System.out.println("The input is not the correct size");
+							System.out.println("Either enter numbers at a time, or All at Once.");
 
 						}
 
 					} else {
+
 						for (int i = 0; i < length; i++) {
 							for (int j = 0; j < height; j++) {
 								board.set(i, j, key.nextInt());

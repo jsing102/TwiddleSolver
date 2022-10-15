@@ -8,11 +8,11 @@ public class Board {
 	private int length;
 	private int height;
 
-	public Board(int len, int hei) {
-		length = len;
-		height = hei;
-		this.size = len * hei;
-		board = new int[len][hei];
+	public Board(int l, int h) {
+		length = l;
+		height = h;
+		size = l * h;
+		board = new int[l][h];
 	}
 
 	public int getSize() {
@@ -114,6 +114,7 @@ public class Board {
 					board[i][j] = rowSet.iterator().next();
 					rowSet.remove(board[i][j]);
 				}
+				counter = 1;
 			}
 		}
 		if (columns && !rows) {
@@ -123,9 +124,10 @@ public class Board {
 					counter++;
 				}
 				for (int j = 0; j < height; j++) {
-					board[j][i] = columnSet.iterator().next();
-					columnSet.remove(board[j][i]);
+					board[i][j] = columnSet.iterator().next();
+					columnSet.remove(board[i][j]);
 				}
+				counter = 1;
 			}
 		}
 
